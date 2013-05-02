@@ -8,7 +8,7 @@ Capistrano::Configuration.instance.load do
       cmd << " -l #{shared_path}/log"
       cmd << " -c #{foreman_concurrency}" if exists?(:foreman_concurrency)
 
-      run "cd #{current_path} && #{sudo} bash -l bundle exec #{cmd}"
+      run "cd #{release_path} && #{sudo} bash -l bundle exec #{cmd}"
     end
 
     desc 'Restart application'
